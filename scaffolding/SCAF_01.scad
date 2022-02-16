@@ -15,23 +15,25 @@ diameter_x = 0.2;
 diameter_y = 0.2;
 diameter_z = 0.2;
 
-x_raster = 2 * diameter_x;
-y_raster = 2 * diameter_y;
+x_raster = 3 * diameter_x;
+y_raster = 3 * diameter_y;
 z_raster = 1 * max(diameter_x, diameter_y, diameter_z);
 
 for (dz = [sZ:(2*z_raster):fZ])
 translate([0,0,dz]){
 // Y-oriented, X-translated nodes
     for (dx = [sX:x_raster:fX]){
-        translate([dx,0,0])
+        translate([dx,-diameter_y/2,0])
         rotate(90, [1,0,0])
+        color([1,0,0])
         cylinder(h = size_y, d = diameter_x, center=true);
         }
     // X-oriented, Y-translated nodes
     translate([0,0, z_raster])    
     for (dy = [sY:y_raster:fY]){
-        translate([0,dy,0])
+        translate([-diameter_x/2,dy,0])
         rotate(90,[0,1,0])
+        color([0,1,0])
         cylinder(h = size_x, d = diameter_y, center = true);
     }
 }
@@ -39,6 +41,7 @@ for (dx = [sX:x_raster:fX])
 for (dy = [sY:y_raster:fY])
 {
     translate([dx,dy,0])
+    color([0,0,1])
     cylinder(h = size_z, d = diameter_z);
 }
 
