@@ -1,7 +1,7 @@
 // global variables
-size_x = 05;
-size_y = 05;
-size_z = 2.2;
+size_x = 5;
+size_y = 5;
+size_z = 4;
 $fn = 20;
 
 sX = -size_x/2;
@@ -11,12 +11,12 @@ fY =  size_y/2;
 sZ = 0;
 fZ = size_z;
 
-diameter_x = 0.2;
-diameter_y = 0.2;
-diameter_z = 0.2;
+diameter_x = 0.3;
+diameter_y = 0.3;
+diameter_z = 0.3;
 
-x_raster = 3 * diameter_x;
-y_raster = 3 * diameter_y;
+x_raster = 2 * diameter_x;
+y_raster = 2 * diameter_y;
 z_raster = 1 * max(diameter_x, diameter_y, diameter_z);
 
 for (dz = [sZ:(2*z_raster):fZ])
