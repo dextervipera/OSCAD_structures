@@ -1,6 +1,6 @@
 // global variables
-size_x = 5;
-size_y = 5;
+size_x = 10;
+size_y = 10;
 size_z = 4;
 $fn = 20;
 
@@ -43,8 +43,16 @@ for (dy = [sY:y_raster:fY])
     translate([dx,dy,0])
     color([0,0,1])
     cylinder(h = size_z, d = diameter_z);
+    
 }
-
 for (dx = [sX:x_raster:fX])
 for (dy = [sY:y_raster:fY])
 for (dz = [sZ:z_raster:fZ]) translate([dx, dy, dz]) sphere(0.12);
+
+for (dx = [sX:(x_raster*2):fX])
+for (dy = [sY:(y_raster*2):fY])
+{
+    translate([dx,dy,-3])
+    color([1,1,1])
+    cylinder(h = 3, d = diameter_z/2);
+}
