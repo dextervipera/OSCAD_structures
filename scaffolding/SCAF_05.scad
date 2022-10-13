@@ -1,8 +1,8 @@
 // global variables
 size_x = 12;
 size_y = 12;
-size_z = 30;
-$fn = 20;
+size_z = 9;
+$fn = 15;
 support_height = 3;
 
 sX = -size_x/2;

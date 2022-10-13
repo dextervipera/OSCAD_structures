@@ -1,9 +1,11 @@
 // global variables
 size_x = 12;
 size_y = 12;
-size_z = 30;
-$fn = 20;
-support_height = 3;
+size_z = 5;
+$fn = 12;
+
+
+support_height = 2;
 
 sX = -size_x/2;
 fX =  size_x/2;
@@ -21,6 +23,8 @@ diameter_z = 0.5;
 x_raster = 2.5 * diameter_x;
 y_raster = 2.5 * diameter_y;
 z_raster = 1.5 * max(diameter_x, diameter_y, diameter_z);
+
+module scaf05(){
     translate([0,0,support_height])
     union(){
     for (dz = [sZ:(2*z_raster):fZ])
@@ -60,7 +64,7 @@ z_raster = 1.5 * max(diameter_x, diameter_y, diameter_z);
     {
         translate([dx,dy,-support_height])
         color([1,1,1])
-        cylinder(h = support_height, r1 = diameter_z*0.6, r2= diameter_z*0.33);
+        cylinder(h = support_height, d = diameter_z);
     }
     translate([0,0,-.5*support_height]){
     // Y-oriented, X-translated nodes
@@ -80,4 +84,17 @@ z_raster = 1.5 * max(diameter_x, diameter_y, diameter_z);
             cylinder(h = size_x, d = diameter_y, center = true);
         }
     }
-}
+}}
+
+translate([0, 0, 0]) scaf05();
+translate([15, 0, 0]) scaf05();
+translate([-15, 0, 0]) scaf05();
+
+translate([0, 15, 0]) scaf05();
+translate([0, -15, 0]) scaf05();
+
+translate([15, 15, 0]) scaf05();
+translate([-15,-15, 0]) scaf05();
+
+translate([-15, 15, 0]) scaf05();
+translate([15, -15, 0]) scaf05();
